@@ -9,9 +9,9 @@ export default defineConfig(({ mode }) => {
   let base = '/';
   
   // For GitHub Pages deployment, uncomment and set your repository name
-  // if (mode === 'production') {
-    base = 'https://amolsr.github.io/portfolio/'; // Replace with your actual repo name
-  // }
+  if (mode === 'production') {
+    base = '/portfolio/'; // Use relative path for GitHub Pages
+  }
   
   // For custom domain or root hosting, keep base as '/'
   
