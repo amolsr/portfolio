@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
   
   // For GitHub Pages deployment, uncomment and set your repository name
   // if (mode === 'production') {
-    base = '/portfolio/'; // Replace with your actual repo name
+    base = 'https://amolsr.github.io/portfolio/'; // Replace with your actual repo name
   // }
   
   // For custom domain or root hosting, keep base as '/'
