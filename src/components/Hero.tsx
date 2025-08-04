@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, ExternalLink, ChevronDown } from "lucide-react";
-import amolAvatar from "@/assets/amol-avatar.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -59,7 +58,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden tech-glow ring-4 ring-primary/20">
                 <img
-                  src={amolAvatar}
+                  src="https://avatars.githubusercontent.com/u/38129418?v=4"
                   alt="Amol Saini"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
