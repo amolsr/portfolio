@@ -1,13 +1,179 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Amol Saini Portfolio Design System - Tech-focused dark theme with electric accents */
+
+@layer base {
+  :root {
+    --background: 222 15% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 15% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 15% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 15% 8%;
+
+    --secondary: 240 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 15% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 193 89% 65%;
+    --accent-foreground: 222 15% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 217 91% 60%;
+
+    /* Portfolio-specific design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(193 89% 65%) 50%, hsl(270 70% 60%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(240 20% 15%) 0%, hsl(240 15% 12%) 100%);
+    --tech-accent: 193 89% 65%;
+    --tech-secondary: 270 70% 60%;
+    --code-bg: 240 10% 8%;
+    
+    /* Glowing effects */
+    --glow-primary: 0 0 20px hsl(217 91% 60% / 0.3);
+    --glow-accent: 0 0 20px hsl(193 89% 65% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode uses same colors as our primary theme */
+    --background: 222 15% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 15% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 15% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 15% 8%;
+
+    --secondary: 240 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 15% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 193 89% 65%;
+    --accent-foreground: 222 15% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom animations and effects */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-gradient {
+    background: var(--card-gradient);
+  }
+
+  .tech-glow {
+    box-shadow: var(--glow-primary);
+  }
+
+  .accent-glow {
+    box-shadow: var(--glow-accent);
+  }
+
+  .typing-animation {
+    border-right: 2px solid hsl(var(--primary));
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { border-color: transparent; }
+    51%, 100% { border-color: hsl(var(--primary)); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
 }
