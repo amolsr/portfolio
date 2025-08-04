@@ -19,12 +19,12 @@ jobs:
         run: npm run build
 
       - name: 404 page
-        run: cp ./build/index.html ./build/404.html
+        run: cp ./dist/index.html ./dist/404.html
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+          FOLDER: dist # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
